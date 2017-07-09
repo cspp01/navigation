@@ -1,0 +1,698 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>navigation</title>
+    <link rel="stylesheet" href="./css/style.css">
+    <link rel="stylesheet" href="//at.alicdn.com/t/font_3sarc078ylgcik9.css">
+    <style>
+        *{
+            margin:10px;
+            padding:0;
+            box-sizing:border-box;
+        }
+        li{
+            list-style:none;
+        }
+        a{
+            text-decoration:none;
+        }
+        i{
+            font-style:normal;
+        }
+        .clearfix:after{
+            content:'';
+            display:block;
+            clear:both;
+        }
+        .clearfix{
+            zoom:1;
+        }
+        @font-face {
+            font-family: 'cc';  /* project id 322806 */
+            src: url('//at.alicdn.com/t/font_3sarc078ylgcik9.eot');
+            src: url('//at.alicdn.com/t/font_3sarc078ylgcik9.eot?#iefix') format('embedded-opentype'),
+            url('//at.alicdn.com/t/font_3sarc078ylgcik9.woff') format('woff'),
+            url('//at.alicdn.com/t/font_3sarc078ylgcik9.ttf') format('truetype'),
+            url('//at.alicdn.com/t/font_3sarc078ylgcik9.svg#cc') format('svg');
+        }
+        body{
+            background-image:none;
+            background-color:#FAFAFB;
+            font-family:cc;
+        }
+        header.top{
+            color:lightseagreen;
+            background:#090723;
+        }
+        .nav{
+            height:50px;
+            width:1000px;
+            margin:0 auto;
+        }
+        .nav>div{
+            float:left;
+        }
+        div.logo{
+            margin-right:50px;
+        }
+        div.logo a{
+            display:block;
+            height:50px;
+            line-height:40px;
+            color: #eaeaea;
+            font-size:25px;
+        }
+        div.logo a::before{
+            content:attr(date-content);
+            color: #c10872;
+        }
+        div.logo a::after{
+            content:'+';
+            font-size:14px;
+            vertical-align:super;
+            color: #ff4828;
+        }
+        div.right{
+            float:right;
+        }
+        div.right a{
+            display:block;
+            height:50px;
+            line-height:50px;
+            color:#fff;
+            font-size:13px;
+        }
+        header.top .nav li{
+            float:left;
+        }
+        .nav li a{
+            height:50px;
+            padding:0 20px;
+            color:rgba(255,255,255,.5);
+            line-height:50px;
+            display:block;
+            transition-proterty:all;
+            transition-duration:.3s;
+            font-size:14px;
+        }
+        .nav li.active a,.nav li a:hover{
+            color:rgba(255,255,255,1);
+        }
+        header:hover{
+
+        }
+        .bann{
+            height:200px;
+            background:#090723;
+            position:relative;
+        }
+        .bann-bg{
+            width:1000px;
+            margin:0 auto;
+            height:100%;
+            position:relative;
+            overflow:hidden;
+        }
+        .bann-bg div:first-child{
+            width:100px;
+            height:100px;
+            border-radius:50%;
+            background-image:linear-gradient(left,#0a0825,#1e1958);
+            background-image:-ms-linear-gradient(left,#0a0825,#1e1958);
+            background-image:-webkit-linear-gradient(left,#0a0825,#1e1958);
+            position:absolute;
+            top:20px;
+            left:20px;
+        }
+        .bann-bg div:nth-child(2){
+            width:50px;
+            height:50px;
+            border-radius:50%;
+            background-image:linear-gradient(100deg,#0a0825,#350f1c);
+            background-image:-ms-linear-gradient(100deg,#0a0825,#350f1c);
+            background-image:-webkit-linear-gradient(100deg,#0a0825,#350f1c);
+            position:absolute;
+            left:300px;
+            top:100px;
+        }
+        .bann-bg div:nth-last-child(2){
+            width:70px;
+            height:70px;
+            border-radius:50%;
+            background-image:linear-gradient(100deg,#0a0825,#350f1c);
+            background-image:-ms-linear-gradient(100deg,#0a0825,#350f1c);
+            background-image:-webkit-linear-gradient(100deg,#0a0825,#350f1c);
+            position:absolute;
+            right:300px;
+            top:10px;
+        }
+        .bann-bg div:nth-last-child(3){
+            width:100%;
+            height:100%;
+            position:relative;
+        }
+        .bann-bg div:nth-last-child(3) b{
+            display:block;
+            font-weight:normal;
+            position:absolute;
+        }
+        .bann-bg div:nth-last-child(3) b:first-child{
+            color:#B32AFF;
+            -webkit-transform:rotate(15deg);
+            -moz-transform:rotate(15deg);
+            -o-transform:rotate(15deg);
+            -ms-transform:rotate(15deg);
+            transform:rotate(15deg);
+            top:70px;
+            left:150px;
+        }
+        .bann-bg div:nth-last-child(3) b:nth-last-child(2){
+            color:#165d3a;
+            -webkit-transform:rotate(35deg);
+            -moz-transform:rotate(35deg);
+            -o-transform:rotate(35deg);
+            -ms-transform:rotate(35deg);
+            transform:rotate(35deg);
+            top:150px;
+            left:500px;
+        }
+        .bann-bg div:nth-last-child(3) b:last-child{
+            color:#7a7b2b;
+            -webkit-transform:scale(1.2);
+            -o-transform:scale(1.2);
+            -moz-transform:scale(1.2);
+            -ms-transform:scale(1.2);
+            transform:scale(1.2);
+            top:30px;
+            right:150px;
+        }
+        .bann-bg div:last-child{
+            width:300px;
+            height:300px;
+            border-radius:50%;
+            background-image:linear-gradient(45deg,#0a0825,#102f35);
+            background-image:-ms-linear-gradient(45deg,#0a0825,#102f35);
+            background-image:-webkit-linear-gradient(45deg,#0a0825,#102f35);
+            position:absolute;
+            top:30%;
+            right:0;
+        }
+        .bann .search{
+            overflow:hidden;
+            position:absolute;
+            top:50%;
+            left:50%;
+            margin:-30px 0 0 -250px;
+            box-shadow:0 0 2px 0px #fff;
+            border-radius:20px;
+        }
+        .bann input{
+             width:500px;
+             height:40px;
+             padding-left:15px;
+             font-size:15px;
+             background:none;
+            border:none;
+             outline:none;
+             color:#fff;
+            -webkit-transition-property:all;
+            -webkit-transition-duration:.3s;
+            -o-transition-property:all;
+            -o-transition-duration:.3s;
+            -moz-transition-property:all;
+            -moz-transition-duration:.3s;
+            transition-property:all;
+            transition-duration:.3s;
+         }
+        .bann button{
+            font-size:25px;
+            outline:none;
+            background:none;
+            color: #c6c6c6;
+            position:absolute;
+            border:none;
+            right:10px;
+            line-height:40px;
+            cursor:pointer;
+            font-family:cc;
+            transition-property:all;
+            transition-duration:.3s;
+        }
+        .bann button:hover{
+            color: #fff;
+            transform:scale(1.2);
+        }
+        /* |||||||||||||||||||||||||||||||||||||||*/
+        .main{
+            width:1000px;
+            margin:0 auto;
+        }
+        .typename{
+            float:left;
+            margin-top:30px;
+            top:0;
+        }
+        .typename li a{
+            display:block;
+            width:200px;
+            height:50px;
+            font-size:13px;
+            line-height:50px;
+            text-align:left;
+            color:#999;
+        }
+        .typename li.active a{
+            color:#333;
+        }
+        .warehouse{
+            width:70%;
+            float:left;
+            margin-top:30px;
+        }
+        .warehouse section{
+            margin-bottom:50px
+        }
+        .warehouse section header{
+            line-height:50px;
+            font-size:22px;
+            padding-left:22px;
+            border-left:2px solid #B32AFF;
+        }
+        .warehouse section li{
+            float:left;
+            margin:15px 0 15px 22px;
+        }
+        .warehouse section li a{
+            display:inline-block;
+            padding:10px 20px;
+            color:#fff;
+            border-radius:20px;
+        }
+        .return{
+            float:right;
+            position:fixed;
+            opacity:0;
+        }
+        .return li{
+            margin:20px 0;
+        }
+        .return li a{
+            display:block;
+            width:50px;
+            height:50px;
+            background: #fff;
+            -webkit-border-radius:50%;
+            -moz-border-radius:50%;
+            border-radius:50%;
+            text-align:center;
+            font-size:0;
+            position:relative;
+        }
+        .return li a::after{
+            content:'';
+            transition-property:all;
+            transition-duration:.3s;
+        }
+        .return li a:hover::after{
+            content:attr(data-content);
+            font-size:14px;
+            position:absolute;
+            width:100px;
+            height:40px;
+            line-height:40px;
+            top:5px;
+            left:55px;
+            background:#efefef;
+            border-radius:25px;
+        }
+        .retu-f{
+            font-size:25px;
+            line-height:50px;
+            color: #999;
+            transition-property:all;
+            transition-duration:.3s;
+        }
+        .return li a:hover .retu-f{
+            color: #333;
+        }
+        .navigations-f{
+            font-size:22px;
+            margin-right:10px;
+            vertical-align:middle;
+        }
+        footer.bottom{
+            background:#333;
+        }
+        .footerinfo{
+            width: 1000px;
+            margin:0 auto;
+            padding:50px 0;
+        }
+        .site-info{
+            width:50%;
+            padding:35px 20px 35px 0;
+            float:left;
+        }
+        .site-info p{
+            margin:15px 0;
+            color:#60606d;
+            font-size:13px;
+        }
+        .firend-link{
+            width:50%;
+            float:left;
+            padding:35px 0 35px 20px;
+        }
+        .firend-link li{
+            float:left;
+            margin-top:10px;
+        }
+        .firend-link header{
+            line-height:50px;
+            font-size:19px;
+            color: #959595;
+            padding-left:10px;
+        }
+        .firend-link li a{
+            padding:5px 10px;
+            color:#60606d;
+        }
+    </style>
+    <link rel="stylesheet" href="../../phpStudy/WWW/full stack/view/css/index.css">
+</head>
+<body>
+<div class="whole">
+    <header class="top">
+        <nav class="nav">
+            <div class="logo">
+                <a href="#" date-content="cc">navgation</a>
+            </div>
+            <div class="menu">
+                <ul class="clearfix">
+                    <li class="active"><a href="#">首页</a></li>
+                    <li><a href="#">个人项目</a></li>
+                    <li><a href="#">UI设计</a></li>
+                    <li><a href="#">开源</a></li>
+                    <li><a href="#">个人介绍</a></li>
+                    <li><a href="#">反馈</a></li>
+                </ul>
+            </div>
+            <div class="right">
+                <a href="#">收藏</a>
+            </div>
+        </nav>
+        <div class="bann">
+            <div class="bann-bg">
+                <div></div>
+                <div></div>
+                <div><b>+</b><b>+</b><b>+</b></div>
+                <div></div>
+                <div></div>
+            </div>
+            <div class="search">
+                <input type="text" placeholder="baidu search"><button><i class="cc-yuan-search"></i></button>
+            </div>
+        </div>
+    </header>
+    <div class="main clearfix">
+        <article class="typename"></article>
+        <div class="warehouse"></div>
+        <div class="return"></div>
+    </div>
+    <footer class="bottom">
+        <div class="footerinfo clearfix">
+            <section class="site-info">
+                <div class="logo">
+                    <a href="#" date-content="cc">navgation</a>
+                </div>
+                <p>阿里妈妈MUX倾力打造的矢量图标管理、交流平台。
+                    设计师将图标上传到Iconfont平台，用户可以自定义下载多种格式的icon，平台也可将图标转换为字体，便于前端工程师自由调整与调用。
+                    ©ALIMAMA MUX, powered by alimama THX.法律声明
+                    转载内容版权归作者及来源网站所有，本站原创内容转载请注明来源，商业媒体及纸媒请先联系：sangxing@taobao.com</p>
+            </section>
+            <section class="firend-link">
+                <header>友情链接</header>
+                <ul class="clearfix">
+                    <li><a href="">阿里</a></li>
+                    <li><a href="">ccblog</a></li>
+                    <li><a href="">ccplugin</a></li>
+                    <li><a href="">php</a></li>
+                    <li><a href="">javascript</a></li>
+                    <li><a href="">html</a></li>
+                    <li><a href="">css</a></li>
+                    <li><a href="">bootstrap</a></li>
+                </ul>
+            </section>
+        </div>
+    </footer>
+</div>
+</body>
+<script src = "http://apps.bdimg.com/libs/jquery/1.11.3/jquery.js"></script>
+<script src="//at.alicdn.com/t/font_7jnygz0v5fxn7b9.js"></script>
+<script>
+    $( function() {
+        var cus = {
+            'navigation' : {
+                '前端' : [ '#771ca9', {
+                    '1' : [ 'github', 'https://github.com/' ],
+                    '2' : [ 'bootstrap', 'http://www.bootcss.com/' ],
+                    '3' : [ 'segmentfault', 'https://segmentfault.com/' ],
+                    '4' : [ 'designmodo(一个国外网站，网站样式挺喜欢)', 'https://designmodo.com/' ],
+                    '5' : [ 'iconfont', 'http://www.iconfont.cn/' ],
+                    '6' : [ '百度翻译', 'http://fanyi.baidu.com/' ]
+                }, 'cc-yuan-cc' ],
+                'javascript库文档' : [ '#5ea940', {
+                    '1' : [ 'JQuery文档', 'http://jquery.cuishifeng.cn/' ],
+                    '2' : [ 'Angular文档', 'http://www.runoob.com/angularjs/angularjs-reference.html' ],
+                    '3' : [ 'vue文档', 'https://vuefe.cn/v2/guide/' ],
+                    '4' : [ 'designmodo(一个国外网站，网站样式挺喜欢)', 'https://designmodo.com/' ],
+                    '5' : [ 'iconfont', 'http://www.iconfont.cn/' ],
+                    '6' : [ '百度翻译', 'http://fanyi.baidu.com/' ]
+                }, 'cc-yuan-cc' ],
+                '字体图标' : [ '#be361e', {
+                    '1' : [ 'github', 'https://github.com/' ],
+                    '2' : [ 'icomoon(字体图标制作)', 'https://icomoon.io/' ],
+                    '3' : [ 'segmentfault', 'https://segmentfault.com/' ],
+                    '4' : [ 'designmodo(一个国外网站，网站样式挺喜欢)', 'https://designmodo.com/' ],
+                    '5' : [ 'iconfont', 'http://www.iconfont.cn/' ],
+                    '6' : [ 'Font Awesome', 'http://fontawesome.dashgame.com/' ]
+                }, 'cc-yuan-pcsP' ],
+                '文档' : [ '#33a135', {
+                    '1' : [ 'w3cSchool', 'http://www.w3school.com.cn/' ],
+                    '2' : [ '菜鸟教程', 'http://www.runoob.com/' ],
+                    '3' : [ 'JQuery', 'http://jquery.cuishifeng.cn/' ],
+                    '4' : [ 'designmodo(一个国外网站，网站样式挺喜欢)', 'https://designmodo.com/' ],
+                    '5' : [ 'iconfont', 'http://www.iconfont.cn/' ],
+                    '6' : [ '123', 'http://www.iconfont.cn' ]
+                }, 'cc-yuan-holdall' ],
+                '后台' : [ '#3fa89c', {
+                    '1' : [ 'github', 'https://github.com/' ],
+                    '2' : [ 'bootstrap', 'http://www.bootcss.com/' ],
+                    '3' : [ 'segmentfault', 'https://segmentfault.com/' ],
+                    '4' : [ 'designmodo(一个国外网站，网站样式挺喜欢)', 'https://designmodo.com/' ],
+                    '5' : [ 'iconfont', 'http://www.iconfont.cn/' ],
+                    '6' : [ '123', 'http://www.iconfont.cn' ]
+                }, 'cc-yuan-handprint' ],
+                '国外优秀网站' : [ '#2b2faa', {
+                    '1' : [ 'jupiter5', 'http://demos.artbees.net/jupiter5/templates/' ],
+                    '2' : [ 'bootstrap', 'http://www.bootcss.com/' ],
+                    '3' : [ 'segmentfault', 'https://segmentfault.com/' ],
+                    '4' : [ 'designmodo(一个国外网站，网站样式挺喜欢)', 'https://designmodo.com/' ],
+                    '5' : [ 'iconfont', 'http://www.iconfont.cn/' ],
+                    '6' : [ '123', 'http://www.iconfont.cn' ]
+                }, 'cc-yuan-seting1' ],
+                '社交' : [ '#b18520', {
+                    '1' : [ 'github', 'https://github.com/' ],
+                    '2' : [ '知乎', 'https://www.zhihu.com/' ],
+                    '3' : [ 'segmentfault', 'https://segmentfault.com/' ],
+                    '4' : [ '微博', 'https://designmodo.com/' ],
+                    '5' : [ '掘金', 'https://juejin.im/' ],
+                    '6' : [ '可以提高start', 'https://news.ycombinator.com/submitted?id=seganw' ]
+                }, 'cc-yuan-information1' ],
+                '视频' : [ '#a6230d', {
+                    '1' : [ 'url中文转编码', 'http://tool.oschina.net/encode?type=4' ],
+                    '2' : [ '淘宝npm镜像', 'https://npm.taobao.org/' ],
+                    '3' : [ 'segmentfault', 'https://segmentfault.com/' ],
+                    '4' : [ 'designmodo(一个国外网站，网站样式挺喜欢)', 'https://designmodo.com/' ],
+                    '5' : [ 'iconfont', 'http://www.iconfont.cn/' ],
+                    '6' : [ '123', 'http://www.iconfont.cn' ]
+                }, 'cc-yuan-vide' ],
+            },
+            'retu' : {
+                'ccblog' : [ 'https://github.com/', 'cc-yuan-blog', 'my blog'],
+                'github' : [ 'https://github.com/', 'cc-yuan-github', 'my github'],
+                'returntop' : [ 'javascript:void(0);', 'cc-yuan-backtop-line1', 'back top']
+            }
+        };
+        $( '.warehouse' ).navigation( cus, $( '.typename' ), $( '.return' ) );
+
+        $( '.search' ).search();
+    } );
+    ;( function(){
+        function Navigation( warehouse, typen, retu, cus ) {
+            this.headerouterheight = $('header.top').outerHeight();
+            this.def = {
+                'navigation' : {},
+                'retu' : {
+                    'github' : [ 'https://github.com/', ''],
+                    'ccblog' : [ 'https://github.com/', ''],
+                    'returntop' : [ 'javascript:void(0);', '']
+                },
+                'sp' : this.headerouterheight
+            };
+            this.merge = $.extend( {}, this.def, cus );
+            this.warehouse = warehouse; // 内容仓库
+            this.types = null; // 存储type
+            this.typeScrollTop = []; // 存储type距离顶端的距离
+            this.typenameWh = typen; // 存储名字的导航栏仓库
+            this.typenames = null; // 存储所有导航栏的名字的a标签
+            this.returnWh = retu; // 存储返回导航栏仓库
+            this.backTop = null; // back top
+        }
+        Navigation.prototype = {
+            'init' : function() {
+                this.domInit();
+                this.fun( this );
+                this.scroll( this );
+                this.retuMiddle( this );
+                this.resize( this );
+                this.backTopClick( this );
+            },
+            'domInit' : function() {
+                var str = '', //内容节点字符串
+                    navigations = this.merge.navigation,
+                    navStr = '<ul>', //导航节点字符串
+                    retus = this.merge.retu,
+                    retuStr = '<ul>';
+                for( var typename in navigations ) {
+                    str += '<section class="type"><header style=border-left-color:' + navigations[ typename ][ 0 ] + ';>'+typename+'</header><ul class="clearfix">';
+                    for (var name in navigations[ typename ][ 1 ]) {
+                        str += '<li><a href="' + navigations[ typename ][ 1 ][ name ][ 1 ] + '" style=background:' + navigations[ typename ][ 0 ] + ';>' + navigations[ typename ][ 1 ][ name ][ 0 ] + '</a></li>';
+                    }
+                    str += '</ul></section>';
+                    navStr += '<li><a href="javascript:void(0);"><i class="' + navigations[ typename ][ 2 ] + ' navigations-f"></i>' + typename + '</a></li>';
+                }
+                // 给内容仓库添加节点
+                this.warehouse.html( str );
+
+                // 给导航区添加节点
+                navStr += '</ul>';
+                this.typenameWh.html(navStr);
+                this.typenames = this.typenameWh.find('li a');
+
+                // 给返回仓库添加节点
+                for( var retuname in retus ) {
+                    retuStr += '<li><a href="' + retus[ retuname ][ 0 ] + '" data-content="' + retus[ retuname ][ 2 ] + '"><i class="' + retus[ retuname ][ 1 ] + ' retu-f"></i></a></li>';
+                }
+                retuStr += '</ul>';
+                this.returnWh.html(retuStr);
+
+                // 存储scrollTop距离
+                this.types = this.warehouse.find('.type');
+                for( var i = 0; i < this.types.length; i ++ ) {
+                    this.typeScrollTop.push( this.types.eq(i).offset().top );
+                }
+
+                this.backTop = this.returnWh.find( 'li:last-child a' );
+            },
+            'styleInit' : function() {
+
+            },
+            'fun' : function(__this) {
+                __this.typenames.each( function( i ) {
+                    __this.typenames.eq(i).click(function(){
+                        $('html,body').animate({
+                            'scrollTop':__this.typeScrollTop[ i ]
+                        });
+                    });
+                } )
+            },
+            'scroll' : function(__this) {
+                $(window).scroll(function() {
+                    if( $(this).scrollTop() > __this.merge.sp ) {
+                        __this.typenameWh.css( 'position', 'fixed' );
+                        __this.warehouse.css( 'margin-left', '200px' );
+                        __this.returnWh.css( 'opacity', '1' );
+                    } else {
+                        __this.typenameWh.css( 'position', 'static' );
+                        __this.warehouse.css( 'margin-left', '0' );
+                        __this.returnWh.css( 'opacity', '0' );
+                    }
+                    for( var i = 0; i < __this.typeScrollTop.length; i++) {
+                        if($(this).scrollTop() > __this.typeScrollTop[ i ] ) {
+                            __this.typenames.eq( i ).parent().parent().children().removeClass('active');
+                            __this.typenames.eq( i ).parent().addClass( 'active' );
+                        }
+                    }
+                })
+            },
+            // 返回顶部
+            'backTopClick' : function( __this ) {
+                __this.backTop.click( function() {
+                    $( 'body, html' ).animate( {
+                        'scrollTop' : 0
+                    } );
+                } )
+            },
+            'retuMiddle' : function() {
+                var clientheight = $(window).innerHeight();
+                var clientwidth = $(window).innerWidth();
+                var retuouterheight = this.returnWh.outerHeight();
+                var mainouterwidth = this.returnWh.parent().outerWidth();
+                this.returnWh.css({
+                    'top' : ( clientheight - retuouterheight ) / 2 + 'px',
+                    'right' : ( clientwidth - mainouterwidth ) / 2 + 'px'
+                })
+            },
+            'resize' : function( __this ) {
+                $(window).resize(function() {
+                    __this.retuMiddle();
+                })
+            }
+        };
+        $.fn.navigation = function( cus, typen, retu ) {
+            var nav = new Navigation( $(this), typen, retu, cus );
+            nav.init();
+        }
+    } )();
+    ;( function() {
+        function SearchBaidu( thi ) {
+            this.warehouse = thi;
+            this.text = this.warehouse.find( 'input' );
+            this.submit = this.warehouse.find( 'button' );
+        }
+        SearchBaidu.prototype = {
+            'init' : function() {
+                this.fun( this );
+                this.focus( this );
+            },
+            'fun' : function( __this ) {
+                __this.submit.click( function() {
+                    var val = __this.text.val();
+                    (val != null && val != '') && ( location.href = 'https://www.baidu.com/s?wd=' + val);
+                    setTimeout( function() {
+                        __this.text.val( '' );
+                    }, 90 );
+                } )
+            },
+            'focus' : function() {
+                this.text.focus( function() {
+                    $( this ).parent().css({
+                        'box-shadow' : '0 0 7px 0 #fff'
+                    })
+                } );
+                this.text.blur( function() {
+                    $( this ).parent().css({
+                        'box-shadow' : '0 0 2px 0 #fff'
+                    })
+                } )
+            }
+        };
+        $.fn.search = function() {
+            var se = new SearchBaidu( $(this) );
+            se.init();
+        }
+    } )();
+</script>
+</html>
